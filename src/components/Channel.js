@@ -6,12 +6,14 @@ const Channel = ( {user = null, db = null,userID=null }) => {
     const [messages,setMessages] = useState([]);
     const [newMessage,setNewMessage] = useState([]);
     const {uid,displayName,photoURL} =user;
-    
     const messagesEndRef = useRef(null)
+
+
     const scrollToBottom = () => {
         messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
     }
     useEffect(scrollToBottom, [messages]);
+
 
     useEffect(() =>{
         if(db){
@@ -26,6 +28,8 @@ const Channel = ( {user = null, db = null,userID=null }) => {
                     id:doc.id,
                 }));
                 setMessages(data);
+                
+                setNewMessage('');
             })
 
             return unsubscribe;

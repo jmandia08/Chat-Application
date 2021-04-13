@@ -240,14 +240,17 @@ input[type="submit"]:active{
     float: right;
     font-size:x-large;
     direction: rtl;
+    color:white;
   }
 .start{
+  font-style: hometown;
   text-align:center;
-  background-color:dodgerblue;
   min-height: 100px;
   font-size: 300%;
-  border-radius: 10px;
+  color: white;
   margin-bottom: 10px;
+  border-bottom:  inherit;
+  border-color: black;
 }
 .head{
   display: inline-block;
