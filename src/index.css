@@ -79,7 +79,7 @@ input[type="submit"]:active{
   padding: 10px;
   background-color: #A8DDFD;
   width: fit-content;
-  min-width: 100px;
+  min-width: 200px;
   max-width: fit-content;
   height: fit-content;
   text-align: left;
@@ -98,7 +98,7 @@ input[type="submit"]:active{
   padding: 10px;
   background-color: #f8e896;
   width: fit-content;
-  min-width: 100px;
+  min-width: 200px;
   max-width: fit-content;
   height: fit-content;
   text-align: left;
@@ -109,10 +109,21 @@ input[type="submit"]:active{
 .message-orange.message-content {
   direction: rtl;
 }
-.message-content {
+.message-left {
+  direction: ltr;
+  text-align: left;
   padding: 0;
   margin: 0;
+  margin-left: 5px;
 }
+.message-right {
+  direction: rtl;
+  text-align: right;
+  padding: 0;
+  margin: 0;
+  margin-right: 5px;
+}
+
 
 .message-timestamp-right {
   position: absolute;
@@ -120,6 +131,7 @@ input[type="submit"]:active{
   font-weight: 300;
   bottom: 5px;
   right: 5px;
+  margin-right: 5px;
 }
 
 .message-timestamp-left {
@@ -128,6 +140,7 @@ input[type="submit"]:active{
   font-weight: 300;
   bottom: 5px;
   left: 5px;
+  margin-left: 5px;
 }
 
 .message-blue:after {
@@ -199,6 +212,9 @@ input[type="submit"]:active{
 .hdr-orange .sender{
   direction: rtl;
 }
+.sender{
+  margin-left: 5px;
+}
 
 
 
@@ -243,7 +259,6 @@ input[type="submit"]:active{
     color:white;
   }
 .start{
-  font-style: hometown;
   text-align:center;
   min-height: 100px;
   font-size: 300%;

@@ -18,8 +18,8 @@ const Message = ({
                 {displayName ? <p className="sender messageHead">{displayName}</p> : null}<br/>
             </div>
             <div className={userId === messageID ? "message-orange": "message-blue"}>
-                <p className="message-content">{text}</p><br/>
-                <div className="message-timestamp-left">{createdAt ?.seconds? (
+                <p className={userId === messageID ? "message-right": "message-left"}>{text}</p><br/>
+                <div className={userId === messageID ? "message-timestamp-right": "message-timestamp-left"}>{createdAt ?.seconds? (
                     <span className="sender">
                         {formatRelative(
                             new Date(createdAt.seconds*1000), new Date()
