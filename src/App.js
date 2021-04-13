@@ -68,7 +68,10 @@ if(initializing) return "Loading . . .";
           <div className="body"><Channel user={user} userID={user.uid} db={db}></Channel></div>
         </>
       ) : (
+        <>
         <Button onClick={signInWithGoogle}>Sign in with google</Button>
+        <div className="welcome"> <div className="text404">404:Chat App</div></div>
+        </>
       )}
     </div>
   );
