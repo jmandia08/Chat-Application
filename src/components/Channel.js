@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useRef} from 'react'
 import firebase from 'firebase/app'
 import Message from './Message'
 
@@ -6,6 +6,12 @@ const Channel = ( {user = null, db = null,userID=null }) => {
     const [messages,setMessages] = useState([]);
     const [newMessage,setNewMessage] = useState([]);
     const {uid,displayName,photoURL} =user;
+    
+    const messagesEndRef = useRef(null)
+    const scrollToBottom = () => {
+        messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
+    }
+    useEffect(scrollToBottom, [messages]);
 
     useEffect(() =>{
         if(db){
@@ -29,6 +35,7 @@ const Channel = ( {user = null, db = null,userID=null }) => {
     const handleOnChange = e =>{
         setNewMessage(e.target.value);
     }
+
     const handleOnSubmit = e =>{
         e.preventDefault();
 
@@ -42,6 +49,8 @@ const Channel = ( {user = null, db = null,userID=null }) => {
             })
         }
         setNewMessage('');
+        scrollToBottom();
+        
     }
     return (
         <ul>
@@ -54,6 +63,8 @@ const Channel = ( {user = null, db = null,userID=null }) => {
                 <Message {...message} messageID={message.uid} userId={userID}></Message>    
                 </li>
             ))}
+            
+        <div ref={messagesEndRef} />
             </div>
         <form onSubmit={handleOnSubmit}>
             <input

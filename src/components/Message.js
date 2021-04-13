@@ -9,7 +9,7 @@ const Message = ({
     userId='',messageID=''
 }) => {
     return (
-        <div>
+        <div className="main">
             <div className={userId === messageID ? "hdr-orange": "hdr-blue"}>
             {
                 photoURL ? (
@@ -18,15 +18,15 @@ const Message = ({
                 {displayName ? <p className="sender messageHead">{displayName}</p> : null}<br/>
             </div>
             <div className={userId === messageID ? "message-orange": "message-blue"}>
-                <p className="message-content">{text}</p>
-                <div className="message-timestamp-left">{createdAt ?.seconds ? (
+                <p className="message-content">{text}</p><br/>
+                <div className="message-timestamp-left">{createdAt ?.seconds? (
                     <span className="sender">
                         {formatRelative(
                             new Date(createdAt.seconds*1000), new Date()
                         )}
                     </span>
                 ) : null}</div>
-    </div>
+            </div>
         </div>
     )
 }
