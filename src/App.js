@@ -67,24 +67,67 @@ const signOut = async () =>{
 
 if(initializing) return "Loading . . .";
 
+// disable right click
+document.addEventListener('contextmenu', event => event.preventDefault());
+ 
+document.onkeydown = function (e) {
+
+    // disable F12 key
+    if(e.keyCode === 123) {
+        return false;
+    }
+
+    // disable I key
+    if(e.ctrlKey && e.shiftKey && e.keyCode === 73){
+        return false;
+    }
+
+    // disable J key
+    if(e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+        return false;
+    }
+
+    // disable U key
+    if(e.ctrlKey && e.keyCode === 85) {
+        return false;
+    }
+}
+
   return (
-    <div className="container">
-      {user ? (
-        <>
-          <div className="header">
-          <div className="login head"><Button onClick={signOut}>Sign Out</Button></div>
-          <div className="greeting head">Hello {user.displayName}</div>
-          </div>
-          <div className="body"><Channel user={user} userID={user.uid} db={db}></Channel></div>
-        </>
-      ) : (
-        <>
-        <Button onClick={signInWithGoogle} loginType="google">Sign in with google</Button>
-        <Button onClick={signInWithTwitter} loginType= "twitter">Sign in with Twitter</Button>
-        <div className="welcome"> <div className="text404">404:Chat App</div></div>
-        </>
-      )}
-    </div>
+    <html>
+          {user ? (
+            <>
+              <div className="Main-Container">
+                <div className="container-left cont">
+                  <div className="user">
+                    <img className="user-icon head"src={user.photoURL} alt="Avatar" width={45} height={45}/>
+                    <div className="greeting head">{user.displayName}</div>
+                    <div className="signout head"><Button onClick={signOut}>Sign Out</Button></div>
+                  </div>
+                </div>
+          
+                <div className="container-center cont">
+                    <div className="body"><Channel user={user} userID={user.uid} db={db}></Channel></div>
+                </div>
+
+                <div className="container-right cont">
+                  <div className="announcement">
+                      <marquee> More Features to come!</marquee>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : (
+            <div className="login-page">
+              <div className="login-child">
+                <div className="welcome"> <div className="text404">404:Chat App</div></div>
+                <Button onClick={signInWithGoogle} loginType="google">Sign in with google</Button>
+                <br/>
+                <Button onClick={signInWithTwitter} loginType= "twitter">Sign in with Twitter</Button>
+              </div>
+            </div>
+          )}
+    </html>
   );
 }
 

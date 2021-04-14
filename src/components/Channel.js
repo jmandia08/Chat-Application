@@ -71,16 +71,18 @@ const Channel = ( {user = null, db = null,userID=null }) => {
         <div ref={messagesEndRef} />
             </div>
         <form onSubmit={handleOnSubmit}>
-            <input
-                className="txtMessage"
-                type="text"
-                value={newMessage}
-                onChange={handleOnChange}
-                placeholder="Type your message here ..."
-            />
-            <button className="btnSend" type="submit" disabled={!newMessage}>
-                Send
-            </button>
+            <div className="inputContainer"> 
+                <input
+                    className="txtMessage"
+                    type="text"
+                    value={newMessage}
+                    onChange={handleOnChange}
+                    placeholder="Type your message here ..."
+                />
+                <button className="btnSend" type="submit" disabled={!newMessage}>
+                    Send
+                </button>
+            </div>
         </form>
         </ul>
     );

@@ -2,37 +2,57 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
+
 ul{
   list-style: none;
 }
-.container {
-  max-width: 900px;
-  min-width: 900px;
-  max-height: 900px;
-  min-height: 900px;
-  margin: auto;
-  overflow: auto;
-  min-height: 300px;
-  padding: 30px 30px 30px 0px;
-  border-radius: 5px;
-  background-color:#97C6E3;
-  position: relative;
+.Main-Container{
+  min-height: 98vh;
+  max-height: 98vh;
+  display: flex;
   background-image: url('./components/background-image.jpg');
   background-size: cover;
+  margin: 0%;
+}
+.container-center {
+  min-width: 39%;
+  min-width: 39%;
+  max-height: 100%;
+  max-height: 100%;
+  min-height: 300px;
+  padding: 5px 30px 5px 0px;
+}
+.container-left {
+  min-width: 29%;
+  max-width: 29%;
+  min-height: 100%;
+  max-height: 100%;
+  border-right: 1px solid black;
+}
+.container-right {
+  min-width: 29%;
+  max-width: 29%;
+  min-height: 100%;
+  max-height: 100%;
+  border-left: 1px solid black;
+  padding: 10px;
+}
+.cont{
+  display: inline-block;
+  position: relative;
 }
 .messageContainer{
   overflow-y: auto;
   margin: 1px auto;
-  border: 1px solid steelblue;
-  min-height: 500px;
+  border: 1px solid black;
   padding: 30px;
   border-radius: 5px;
-  max-height: 650px;
-  min-height: 650px;
+  max-height: 700px;
+  min-height: 700px;
 }
 .newMessage{
   margin: 1px auto;
-  border: 1px solid steelblue;
+  border: 1px solid black;
   padding: 30px;
   border-radius: 5px;
 }
@@ -216,13 +236,13 @@ input[type="submit"]:active{
   margin-left: 5px;
 }
 
-.login-buttons{
-  display: inline-block;
+.buttons{
   cursor: pointer;
 }
 .SignOut-btn{
+  margin-left: 10px !important;
   width: 130px !important;
-  background-color:transparent  !important;
+  background-color:/*mediumorchid*/transparent !important;
 }
 .SignOut-text{
   padding:5px;
@@ -267,10 +287,19 @@ input[type="submit"]:active{
     letter-spacing: 0.2px;
     font-family: "Roboto";
   }
-
+  .signout{
+    float: right;
+  }
+  .user{
+    margin: 10px;
+    padding-bottom: 10px;
+    border-bottom: 5px dashed pink;
+  }
+  .user-icon{
+    border-radius: 20px;
+  }
   .greeting{
     padding:10px;;
-    float: right;
     font-size:x-large;
     color:white;
   }
@@ -285,6 +314,7 @@ input[type="submit"]:active{
 }
 .head{
   display: inline-block;
+  vertical-align:top
 }
 
 .messageContainer::-webkit-scrollbar-track
@@ -309,19 +339,17 @@ input[type="submit"]:active{
 
 .welcome {
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: black;
   font-size: 96px;
   font-family: 'Fira Mono', monospace;
 }
 
-
-
-
 .text404{
-  width: 700px;
+  min-width: 700px;
+  max-width: 700px;
   animation: glitch 1s linear infinite;
 }
 
@@ -380,7 +408,34 @@ input[type="submit"]:active{
   }
 }
 
-
+.login-page{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10%;
+  border: 1px solid black;
+  margin-left: 30% !important;
+  margin-top: 6% !important;
+  width: 29%;
+  min-height: 500px;
+  border-radius: 5px;
+  background-image: url('./components/background-image.jpg');
+  background-size: cover;
+}
+.login-child{
+  margin-top: 35%;
+  margin-left: 10% !important;
+}
+.login-child.buttons{
+  margin-left:  auto;
+  margin-right: auto;
+  text-align: center;
+}
+.announcement{
+  margin-left:  auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 50px;
+}
 
 
 
