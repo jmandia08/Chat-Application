@@ -216,7 +216,24 @@ input[type="submit"]:active{
   margin-left: 5px;
 }
 
-
+.login-buttons{
+  display: inline-block;
+  cursor: pointer;
+}
+.SignOut-btn{
+  width: 130px !important;
+  background-color:transparent  !important;
+}
+.SignOut-text{
+  padding:5px;
+}
+.SignOut-wrapper {
+  background-color:transparent !important;
+}
+.SignOut-icon {
+  width: 25px !important;
+  height: 25px !important;
+}
 
 .google-btn {
   margin-left: 40px;

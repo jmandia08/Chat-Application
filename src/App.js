@@ -39,14 +39,24 @@ function App() {
   },[])
 
   const signInWithGoogle = async () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
     auth.useDeviceLanguage();
     try{
-      await auth.signInWithPopup(provider);
+      await auth.signInWithPopup(googleProvider);
     }catch(error){
       console.log(error);
     }
-};
+  };
+  const signInWithTwitter= async () => {
+    const twitterProvider = new firebase.auth.TwitterAuthProvider();
+    auth.useDeviceLanguage();
+    try{
+      await auth.signInWithPopup(twitterProvider);
+    }catch(error){
+      console.log(error);
+    }
+  };
+
 const signOut = async () =>{
   try{
     await firebase.auth().signOut();
@@ -69,7 +79,8 @@ if(initializing) return "Loading . . .";
         </>
       ) : (
         <>
-        <Button onClick={signInWithGoogle}>Sign in with google</Button>
+        <Button onClick={signInWithGoogle} loginType="google">Sign in with google</Button>
+        <Button onClick={signInWithTwitter} loginType= "twitter">Sign in with Twitter</Button>
         <div className="welcome"> <div className="text404">404:Chat App</div></div>
         </>
       )}
