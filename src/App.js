@@ -65,33 +65,33 @@ const signOut = async () =>{
   }
 }
 
-if(initializing) return "Loading . . .";
+// if(initializing) return "Loading . . .";
 
-// disable right click
-document.addEventListener('contextmenu', event => event.preventDefault());
+// // disable right click
+// document.addEventListener('contextmenu', event => event.preventDefault());
  
-document.onkeydown = function (e) {
+// document.onkeydown = function (e) {
 
-    // disable F12 key
-    if(e.keyCode === 123) {
-        return false;
-    }
+//     // disable F12 key
+//     if(e.keyCode === 123) {
+//         return false;
+//     }
 
-    // disable I key
-    if(e.ctrlKey && e.shiftKey && e.keyCode === 73){
-        return false;
-    }
+//     // disable I key
+//     if(e.ctrlKey && e.shiftKey && e.keyCode === 73){
+//         return false;
+//     }
 
-    // disable J key
-    if(e.ctrlKey && e.shiftKey && e.keyCode === 74) {
-        return false;
-    }
+//     // disable J key
+//     if(e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+//         return false;
+//     }
 
-    // disable U key
-    if(e.ctrlKey && e.keyCode === 85) {
-        return false;
-    }
-}
+//     // disable U key
+//     if(e.ctrlKey && e.keyCode === 85) {
+//         return false;
+//     }
+// }
 
   return (
     <html>
@@ -107,6 +107,18 @@ document.onkeydown = function (e) {
                 </div>
           
                 <div className="container-center cont">
+                    <div className="chat-header">
+                      <img className="chat-head chat-info"src={user.photoURL} alt="Avatar" width={45} height={45}/>
+                      <div className="chat-info">
+                          <div className="chat-name">
+                            {user.displayName}
+                           </div>
+                           <div className="chat-status"> 
+                            <div className="current-status status">•</div>
+                            <div className="text-status status">Active Now</div>
+                          </div>
+                      </div>
+                    </div>
                     <div className="body"><Channel user={user} userID={user.uid} db={db}></Channel></div>
                 </div>
 
