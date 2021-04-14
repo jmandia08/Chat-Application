@@ -110,14 +110,14 @@ input[type="submit"]:active{
   direction: rtl;
 }
 .message-left {
-  direction: ltr;
+  /*direction: ltr;*/
   text-align: left;
   padding: 0;
   margin: 0;
   margin-left: 5px;
 }
 .message-right {
-  direction: rtl;
+  /*direction: rtl;*/
   text-align: right;
   padding: 0;
   margin: 0;
@@ -272,7 +272,6 @@ input[type="submit"]:active{
     padding:10px;;
     float: right;
     font-size:x-large;
-    direction: rtl;
     color:white;
   }
 .start{
