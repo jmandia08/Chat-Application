@@ -41,19 +41,86 @@ ul{
   display: inline-block;
   position: relative;
 }
+.addImageContainer{
+  background-color: red;
+  width :20px;
+}
 .messageContainer{
   overflow-y: auto;
   margin: 1px auto;
   border: 1px solid black;
   padding: 30px;
-  max-height: 700px;
-  min-height: 700px;
+  max-height:75vh ;
+  min-height:75vh ;
+}
+.inputContainer{
+  margin-left: 40px;
+  position: fixed;
+    bottom: 20px;
+    min-width: 37%;
+    max-width: 37%;
 }
 .newMessage{
   margin: 1px auto;
   border: 1px solid black;
   padding: 30px;
   border-radius: 5px;
+}
+.deleteImage{
+  background-color:thistle;
+  border-radius:10px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  vertical-align: top;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.memes{
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 400px;
+  max-height: 400px;
+  padding: 20px;
+}
+.inp,.preview-items{
+  display: inline-block;
+}
+.inputUpload::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.inputUpload {
+  width: 45px;
+  height: 45px;
+  border: none;
+  outline: none;
+}
+.inputBg{
+   background-image: url("https://cdn0.iconfinder.com/data/icons/set-app-incredibles/24/Image-01-512.png");
+  background-size:cover; 
+  width: 51px;
+  height: 51px;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color:transparent;
+  position: absolute;
+  margin-top: 1.5px;
+}
+.imageContainer{
+  background-color:wheat;
+  border-radius: 5px;
+  width: 98.2%;
+}
+.imagePreview{
+  width:100px;
+  height: 100px;
+  margin: 10px;
+}
+.sendImage{
+  float: right;
+  vertical-align:middle;
+  margin-top:50px;
+  margin-right:10px;
 }
 .txtMessage{
   border: 1px solid #848484; 
@@ -66,8 +133,9 @@ ul{
 
   margin-top: 5px;
   min-height: 40px ;
-  min-width: 75%;
+  min-width: 67%;
   border-radius: 5px;
+  margin-left: 50px;
 }
 .btnSend{
   margin-left: 10px;
@@ -82,6 +150,7 @@ ul{
   border-radius: 10px;
   transition: 150ms ease;
   font-weight: bold;
+  outline: none;
 }
 
 input[type="submit"]:active{

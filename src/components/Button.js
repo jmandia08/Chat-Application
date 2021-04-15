@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 const Button = ({onClick=null,children=null,loginType=""}) => {
     return(
-        <div className="login-buttons" onClick={onClick}>
+        <div className="buttons" onClick={onClick}>
             <div className={classnames("google-btn", children.replace( /\s/g, '')).concat('-btn')}>
                 <div className={classnames('google-icon-wrapper', children.replace( /\s/g, '')).concat('-wrapper')}>
                     <img className={classnames('google-icon', children.replace( /\s/g, '')).concat('-icon')} 

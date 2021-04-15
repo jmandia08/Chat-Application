@@ -3,6 +3,7 @@ import React,{useState,useEffect} from 'react'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
+import 'firebase/storage'
 
 //components
 import Button from './components/Button'
@@ -16,9 +17,10 @@ firebase.initializeApp({
     messagingSenderId: "218494531733",
     appId: "1:218494531733:web:fd34858f77fce35c25c39c"
 });
-
 const auth = firebase.auth();
 const db = firebase.firestore();
+const storage = firebase.storage();
+
 function App() {
   const [user,setUser] = useState(()=> auth.currentUser);
   const [initializing,setInitializing] = useState(true);
@@ -57,6 +59,31 @@ function App() {
     }
   };
 
+  const checkIfExist = () =>{
+    var ref = firebase.database().ref(`users/${user.uid}`);
+    ref.once("value")
+      .then(function(snapshot) {
+        return true;
+      });
+  }
+  const createUser = () => {
+    if(user){
+      if(!checkIfExist()){
+        if(db){
+          db.collection('users').add({
+              userId: user.uid,
+              userName: user.displayName,
+              userStatus: null
+          })
+        }
+      }else{
+       console.log("existing");
+      }
+    }else{
+      console.log("no user")
+    }
+
+  }
 const signOut = async () =>{
   try{
     await firebase.auth().signOut();
@@ -94,9 +121,10 @@ const signOut = async () =>{
 // }
 
   return (
-    <html>
+    <>
           {user ? (
             <>
+              {/* {createUser()} */}
               <div className="Main-Container">
                 <div className="container-left cont">
                   <div className="user">
@@ -119,12 +147,12 @@ const signOut = async () =>{
                           </div>
                       </div>
                     </div>
-                    <div className="body"><Channel user={user} userID={user.uid} db={db}></Channel></div>
+                    <div className="body"><Channel user={user} userID={user.uid} db={db} storage ={storage}></Channel></div>
                 </div>
 
                 <div className="container-right cont">
                   <div className="announcement">
-                      <marquee> More Features to come!</marquee>
+                      <h3> More Features to come!</h3>
                   </div>
                 </div>
               </div>
@@ -139,8 +167,7 @@ const signOut = async () =>{
               </div>
             </div>
           )}
-    </html>
+    </>
   );
 }
-
 export default App;
