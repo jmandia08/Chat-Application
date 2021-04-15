@@ -89,6 +89,7 @@ const Channel = ( {user = null, db = null,userID=null,storage=null }) => {
             )
             e.currentTarget.blur()
             setURL("");
+            setImage(null);
         }
     }
     const handleChange = e =>  {
