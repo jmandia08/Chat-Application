@@ -15,7 +15,7 @@ const Button = ({onClick=null,children=null,loginType=""}) => {
                     }
                     />
                 </div>
-                <p className={classnames('btn-text', children.replace( /\s/g, '')).concat('-text')}><b>{children}</b></p>
+                <p className={classnames('btn-text', children.replace( /\s/g, '')).concat('-text')}><b>{ children === "Sign Out"? "" : children}</b></p>
             </div>
         </div>
     )

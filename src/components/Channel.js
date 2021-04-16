@@ -130,10 +130,11 @@ const Channel = ( {user = null, db = null,userID=null,storage=null }) => {
                     </div>
                      ) : null}
             </div>
-                <form onSubmit={handleOnSubmit}>
-                    <div className="inputBg inp">
-                        <input className="inputUpload" type="file" onClick={e => (e.target.value = null)} accept="image/png, image/jpeg" onChange={handleChange}/>
-                    </div>
+            <form onSubmit={handleOnSubmit} className="form">
+                <div className="inputBg inputImage inp">
+                    <input className="inputUpload" type="file" onClick={e => (e.target.value = null)} accept="image/png, image/jpeg" onChange={handleChange}/>
+                </div>
+                <div className="inp inputText">
                     <input
                         className="txtMessage inp"
                         type="text"
@@ -141,10 +142,13 @@ const Channel = ( {user = null, db = null,userID=null,storage=null }) => {
                         onChange={handleOnChange}
                         placeholder="Type your message here ..."
                     />
-                    <button className="btnSend inp" type="submit" onClick={uploadImg} disabled={!newMessage?!imgURL:!newMessage}>
+                </div>
+                 <div className="inp inputButton">
+                    <button className="btnSend" type="submit" onClick={uploadImg} disabled={!newMessage?!imgURL:!newMessage}>
                         Send
                     </button>
-                </form>
+                </div>
+            </form>
             </div>
         </>
     );

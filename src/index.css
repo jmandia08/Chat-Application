@@ -2,63 +2,72 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
-
+html, body {
+  height: 99.4%;
+}
+#root{
+  height: 99.4%;
+}
 ul{
-  list-style: none;
+  
+  padding: 0;
+  list-style-type: none;
 }
-.Main-Container{
-  min-height: 98vh;
-  max-height: 98vh;
-  display: flex;
+.pageBG{
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  min-height: 100%;
+  max-height: 100%;
+}
+.Main-Container {
   background-image: url('./components/background-image.jpg');
-  background-size: cover;
-  margin: 0%;
-}
-.container-center {
+  background-size: cover; 
   min-width: 39%;
   min-width: 39%;
-  max-height: 100%;
-  max-height: 100%;
-  min-height: 300px;
-  padding: 10px 30px 5px 0px;
-}
-.container-left {
-  min-width: 29%;
-  max-width: 29%;
   min-height: 100%;
   max-height: 100%;
-  border-right: 1px solid black;
-}
-.container-right {
-  min-width: 29%;
-  max-width: 29%;
-  min-height: 100%;
-  max-height: 100%;
-  border-left: 1px solid black;
-  padding: 10px;
-}
-.cont{
-  display: inline-block;
-  position: relative;
+  border-radius: 10px;
 }
 .addImageContainer{
-  background-color: red;
   width :20px;
 }
 .messageContainer{
   overflow-y: auto;
   margin: 1px auto;
-  border: 1px solid black;
+  border: 5px solid black;
+  border-radius: 10px;
   padding: 30px;
   max-height:75vh ;
   min-height:75vh ;
 }
+.form
+{
+  margin-left: auto;
+  margin-right: auto;
+}
+.inp{
+  margin-right: 30px;
+}
+.inputImage{
+  width: 5%;
+}
+.inputText{
+  width: 56%;
+  margin-left: 50px;
+}
+.inputButton{
+  width: 20%;
+  margin-right: 0px !important;
+}
 .inputContainer{
-  margin-left: 40px;
-  position: fixed;
-    bottom: 20px;
-    min-width: 37%;
-    max-width: 37%;
+  min-width: 99.5%;
+  max-width: 99.5%;
+  border-bottom: 5px solid black;
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+  border-radius: 5px;
+  margin-top: -10px;
 }
 .newMessage{
   margin: 1px auto;
@@ -76,11 +85,14 @@ ul{
   cursor: pointer;
   margin-top: 10px;
 }
+.message-orange .memes{
+float: right;
+}
 .memes{
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 400px;
-  max-height: 400px;
+  min-width: 50%;
+  max-width: 50%;
+  min-height: 50%;
+  max-height: 50%;
   padding: 20px;
 }
 .inp,.preview-items{
@@ -100,7 +112,6 @@ ul{
   background-size:cover; 
   width: 51px;
   height: 51px;
-  margin-right: 10px;
   border-radius: 5px;
   background-color:transparent;
   position: absolute;
@@ -133,13 +144,11 @@ ul{
 
   margin-top: 5px;
   min-height: 40px ;
-  min-width: 67%;
+  min-width: 100%;
   border-radius: 5px;
-  margin-left: 50px;
 }
 .btnSend{
-  margin-left: 10px;
-  min-width: 20%;
+  min-width: 100%;
   height: 45px;
   font-family: Helvetica;
   border-top: none;
@@ -186,7 +195,7 @@ input[type="submit"]:active{
   padding: 10px;
   background-color: #f8e896;
   width: fit-content;
-  min-width: 200px;
+  min-width: 150px;
   max-width: fit-content;
   height: fit-content;
   text-align: left;
@@ -309,7 +318,8 @@ input[type="submit"]:active{
 }
 .SignOut-btn{
   margin-left: 10px !important;
-  width: 130px !important;
+  width: 50px !important;
+  height: 50px !important;
   background-color:/*mediumorchid*/transparent !important;
 }
 .SignOut-text{
@@ -317,6 +327,8 @@ input[type="submit"]:active{
 }
 .SignOut-wrapper {
   background-color:transparent !important;
+  padding-top:4px;
+  padding-left:4px;
 }
 .SignOut-icon {
   width: 25px !important;
@@ -389,13 +401,14 @@ input[type="submit"]:active{
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	border-radius: 10px;
-	background-color: #F5F5F5;
+	background-color: #eed3ed;
 }
 
 .messageContainer::-webkit-scrollbar
 {
 	width: 12px;
 	background-color: #F5F5F5;
+	border-radius: 10px;
 }
 
 .messageContainer::-webkit-scrollbar-thumb
@@ -407,11 +420,10 @@ input[type="submit"]:active{
 
 .welcome {
   position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 40%;
+  left: 46%;
   color: black;
-  font-size: 96px;
+  font-size: 30px;
   font-family: 'Fira Mono', monospace;
 }
 
@@ -475,23 +487,15 @@ input[type="submit"]:active{
     transform: translate(-22px,5px) skew(21deg); 
   }
 }
-
 .login-page{
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 10%;
-  border: 1px solid black;
-  margin-left: 30% !important;
-  margin-top: 6% !important;
-  width: 29%;
-  min-height: 500px;
-  border-radius: 5px;
   background-image: url('./components/background-image.jpg');
-  background-size: cover;
+  background-size: cover; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.login-child{
-  margin-top: 35%;
-  margin-left: 10% !important;
+.login-options{
+  margin: 10px;
 }
 .login-child.buttons{
   margin-left:  auto;
@@ -504,14 +508,17 @@ input[type="submit"]:active{
   text-align: center;
   font-size: 50px;
 }
+.chat{
+  width: 61%;
+  overflow:hidden;
+}
 .chat-header{
   padding: 10px;
-  box-shadow: 0 2px 1px -1px black;
   margin-bottom: -17px;
-  margin-left: 40px;
   height: 60px;
-  border: 1px solid black;
+  border: 5px solid black;
   background-color: transparent;
+  border-radius: 10px;
 }
 .chat-head{
   border-radius: 30px;
@@ -525,7 +532,7 @@ input[type="submit"]:active{
 }
 .chat-name{
   margin-left: 10px;
-  font-size: 30px;
+  font-size: 20px;
 }
 .chat-status{
   margin-left: 10px;

@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{ useState , useEffect } from 'react'
 //firebase
 import firebase from 'firebase/app'
 import 'firebase/auth'
@@ -38,7 +38,7 @@ function App() {
     });
 
     return unsubscribe;
-  },[])
+  },[initializing])
 
   const signInWithGoogle = async () => {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -122,22 +122,14 @@ const signOut = async () =>{
 
   return (
     <>
+    <div className="pageBG">
           {user ? (
             <>
               {/* {createUser()} */}
-              <div className="Main-Container">
-                <div className="container-left cont">
-                  <div className="user">
-                    <img className="user-icon head"src={user.photoURL} alt="Avatar" width={45} height={45}/>
-                    <div className="greeting head">{user.displayName}</div>
-                    <div className="signout head"><Button onClick={signOut}>Sign Out</Button></div>
-                  </div>
-                </div>
-          
-                <div className="container-center cont">
+                <div className="Main-Container">
                     <div className="chat-header">
                       <img className="chat-head chat-info"src={user.photoURL} alt="Avatar" width={45} height={45}/>
-                      <div className="chat-info">
+                      <div className="chat-info chat">
                           <div className="chat-name">
                             {user.displayName}
                            </div>
@@ -146,27 +138,21 @@ const signOut = async () =>{
                             <div className="text-status status">Active Now</div>
                           </div>
                       </div>
+                      <div className="signout head"><Button onClick={signOut}>Sign Out</Button></div>
                     </div>
                     <div className="body"><Channel user={user} userID={user.uid} db={db} storage ={storage}></Channel></div>
                 </div>
-
-                <div className="container-right cont">
-                  <div className="announcement">
-                      <h3> More Features to come!</h3>
-                  </div>
-                </div>
-              </div>
             </>
           ) : (
             <div className="login-page">
-              <div className="login-child">
-                <div className="welcome"> <div className="text404">404:Chat App</div></div>
+              <div className ="login-options">
                 <Button onClick={signInWithGoogle} loginType="google">Sign in with google</Button>
                 <br/>
                 <Button onClick={signInWithTwitter} loginType= "twitter">Sign in with Twitter</Button>
               </div>
             </div>
           )}
+    </div>
     </>
   );
 }
