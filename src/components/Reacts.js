@@ -1,14 +1,22 @@
-const Reacts = ({setReact=null,docId=""}) => {
+const Reacts = ({setReact=null,docId="",reactors="",documentID="",reaction="",reactor=""}) => {
 
     return (
         <>
-            <div onClick={() => {setReact("❤️",docId)}} className="reactions react-love">❤️</div>
-            <div onClick={() => {setReact("😆",docId)}} className="reactions react-haha">😆</div>
-            <div onClick={() => {setReact("😮",docId)}} className="reactions react-wow">😮</div>
-            <div onClick={() => {setReact("😢",docId)}} className="reactions react-sad">😢</div>
-            <div onClick={() => {setReact("😠",docId)}} className="reactions react-mad">😠</div>
-            <div onClick={() => {setReact("👍",docId)}} className="reactions react-like">👍</div>
-            <div onClick={() => {setReact("👎",docId)}} className="reactions react-dislike">👎</div>
+        {reaction ? 
+        <div className="reactions react-love" id={documentID}>
+            {reaction}
+        </div> 
+        :
+        <>
+            <div onClick={() => {setReact("❤️",docId,reactors)}} className="reactions react-love">❤️</div>
+            <div onClick={() => {setReact("😆",docId,reactors)}} className="reactions react-haha">😆</div>
+            <div onClick={() => {setReact("😮",docId,reactors)}} className="reactions react-wow">😮</div>
+            <div onClick={() => {setReact("😢",docId,reactors)}} className="reactions react-sad">😢</div>
+            <div onClick={() => {setReact("😠",docId,reactors)}} className="reactions react-mad">😠</div>
+            <div onClick={() => {setReact("👍",docId,reactors)}} className="reactions react-like">👍</div>
+            <div onClick={() => {setReact("👎",docId,reactors)}} className="reactions react-dislike">👎</div>
+        </>
+        }
         </>
     )
 }
