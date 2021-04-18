@@ -10,10 +10,10 @@ const Channel = ( {user = null, db = null,userID=null,storage=null }) => {
     const {uid,displayName,photoURL} =user;
     const messagesEndRef = useRef(null)
 
-
     const scrollToBottom = () => {
         messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
     }
+
     useEffect(scrollToBottom, [messages]);
 
 
@@ -53,6 +53,7 @@ const Channel = ( {user = null, db = null,userID=null,storage=null }) => {
                     uid,
                     displayName,
                     photoURL,
+                    reacts: "",
                 })
             }
             setNewMessage('');
@@ -105,23 +106,47 @@ const Channel = ( {user = null, db = null,userID=null,storage=null }) => {
         setURL("");
         setImage(null);
     }
+
+    
+
     return (
         <>
-        <ul>
-            <div className="messageContainer">
+        <div className="messageContainer">
+            <ul>
                 <div className="start">
                     <h3>Welcome to the chat!</h3>
                 </div>
                 {messages.map(message => (
                     <li key={message.id}>
-                    <Message {...message} messageID={message.uid} userId={userID}></Message>    
+                    <Message {...message} messageID={message.uid} userId={userID} db={db}></Message>    
                     </li>
                 ))}
                 
-                <div ref={messagesEndRef} />
-            </div>
-        </ul>
+                <div ref={messagesEndRef} className="ref" />
+            </ul>
+        </div>
         <div className="inputContainer"> 
+            <form onSubmit={handleOnSubmit} className="form">
+                    <div className="inputBg inputImage">
+                        <input className="inputUpload" type="file" onClick={e => (e.target.value = null)} accept="image/png, image/jpeg" onChange={handleChange}/>
+                    </div>
+                <div className="inputs">
+                    <div className="inp inputText">
+                        <input
+                            className="txtMessage inp"
+                            type="text"
+                            value={newMessage}
+                            onChange={handleOnChange}
+                            placeholder="Type your message here ..."
+                        />
+                    </div>
+                    <div className="inp inputButton">
+                        <button className="btnSend" type="submit" onClick={uploadImg} disabled={!newMessage?!imgURL:!newMessage}>
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </form>
             <div className="imageContainer"> 
                 {imgURL ? (
                      <div >
@@ -130,25 +155,6 @@ const Channel = ( {user = null, db = null,userID=null,storage=null }) => {
                     </div>
                      ) : null}
             </div>
-            <form onSubmit={handleOnSubmit} className="form">
-                <div className="inputBg inputImage inp">
-                    <input className="inputUpload" type="file" onClick={e => (e.target.value = null)} accept="image/png, image/jpeg" onChange={handleChange}/>
-                </div>
-                <div className="inp inputText">
-                    <input
-                        className="txtMessage inp"
-                        type="text"
-                        value={newMessage}
-                        onChange={handleOnChange}
-                        placeholder="Type your message here ..."
-                    />
-                </div>
-                 <div className="inp inputButton">
-                    <button className="btnSend" type="submit" onClick={uploadImg} disabled={!newMessage?!imgURL:!newMessage}>
-                        Send
-                    </button>
-                </div>
-            </form>
             </div>
         </>
     );

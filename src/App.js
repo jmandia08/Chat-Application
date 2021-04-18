@@ -140,12 +140,13 @@ const signOut = async () =>{
                       </div>
                       <div className="signout head"><Button onClick={signOut}>Sign Out</Button></div>
                     </div>
-                    <div className="body"><Channel user={user} userID={user.uid} db={db} storage ={storage}></Channel></div>
+                    <Channel user={user} userID={user.uid} db={db} storage ={storage}></Channel>
                 </div>
             </>
           ) : (
             <div className="login-page">
-              <div className ="login-options">
+              <div className ="login-options login">
+                <div className ="login">404 : Chat App</div><br/>
                 <Button onClick={signInWithGoogle} loginType="google">Sign in with google</Button>
                 <br/>
                 <Button onClick={signInWithTwitter} loginType= "twitter">Sign in with Twitter</Button>

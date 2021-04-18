@@ -14,6 +14,9 @@ ul{
   list-style-type: none;
 }
 .pageBG{
+  background-image: url('./components/background-image.jpg');
+  background-size: cover; 
+  position: relative;
   padding: 0;
   margin: 0;
   border-radius: 10px;
@@ -21,53 +24,72 @@ ul{
   max-height: 100%;
 }
 .Main-Container {
-  background-image: url('./components/background-image.jpg');
-  background-size: cover; 
-  min-width: 39%;
-  min-width: 39%;
   min-height: 100%;
   max-height: 100%;
+  height: 100%;
   border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.addImageContainer{
-  width :20px;
-}
+
 .messageContainer{
   overflow-y: auto;
-  margin: 1px auto;
+  margin: 15px auto;
   border: 5px solid black;
   border-radius: 10px;
   padding: 30px;
-  max-height:75vh ;
-  min-height:75vh ;
+  height:74%;
 }
-.form
-{
-  margin-left: auto;
-  margin-right: auto;
-}
-.inp{
-  margin-right: 30px;
-}
-.inputImage{
-  width: 5%;
-}
-.inputText{
-  width: 56%;
-  margin-left: 50px;
-}
-.inputButton{
-  width: 20%;
-  margin-right: 0px !important;
-}
+
+
 .inputContainer{
-  min-width: 99.5%;
-  max-width: 99.5%;
+  min-width: 97%;
+  max-width: 97%;
   border-bottom: 5px solid black;
   border-left: 5px solid black;
   border-right: 5px solid black;
   border-radius: 5px;
   margin-top: -10px;
+  height: fit-content;
+}
+
+.imageContainer{
+  background-color:wheat;
+  border-radius: 5px;
+  width: 98.2%;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  /* position: absolute;
+  z-index: 10;
+  margin-top: -22%; */
+}
+
+.addImageContainer{
+  width :20px;
+}
+.form
+{
+  width: 100%;
+}
+.inputs{
+  width: calc(100% - 50px);
+  margin-left: calc(100% - (100% - 50px));
+}
+.inp{
+  vertical-align: middle;
+}
+.inputImage{
+  width: 5%;
+}
+.inputText{
+  width: calc((100% - 50px)*.7);
+  margin-right: 25px;
+}
+.inputButton{
+  width: calc((100% - 50px)*.34);
 }
 .newMessage{
   margin: 1px auto;
@@ -108,25 +130,20 @@ max-height: 90%;
   visibility: hidden;
 }
 .inputUpload {
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   border: none;
   outline: none;
 }
 .inputBg{
    background-image: url("https://cdn0.iconfinder.com/data/icons/set-app-incredibles/24/Image-01-512.png");
   background-size:cover; 
-  width: 51px;
-  height: 51px;
+  width: 50px;
+  height: 50px;
   border-radius: 5px;
   background-color:transparent;
   position: absolute;
   margin-top: 1.5px;
-}
-.imageContainer{
-  background-color:wheat;
-  border-radius: 5px;
-  width: 98.2%;
 }
 .imagePreview{
   width:100px;
@@ -150,11 +167,10 @@ max-height: 90%;
 
   margin-top: 5px;
   min-height: 40px ;
-  min-width: 100%;
-  border-radius: 5px;
+  width: 100%;
 }
 .btnSend{
-  min-width: 100%;
+  width: 100%;
   height: 45px;
   font-family: Helvetica;
   border-top: none;
@@ -166,6 +182,7 @@ max-height: 90%;
   transition: 150ms ease;
   font-weight: bold;
   outline: none;
+  margin-top: 4px;
 }
 
 input[type="submit"]:active{
@@ -183,7 +200,7 @@ input[type="submit"]:active{
   background-color: #A8DDFD;
   width: fit-content;
   min-width: 200px;
-  max-width: 40%;
+  max-width: fit-content;
   height: fit-content;
   text-align: left;
   font: 400 .9em 'Open Sans', sans-serif;
@@ -192,6 +209,7 @@ input[type="submit"]:active{
 }
 .main{
   display: flow-root;
+  margin-bottom: 10px;
 }
 .message-orange {
   position: relative;
@@ -202,7 +220,7 @@ input[type="submit"]:active{
   background-color: #f8e896;
   width: fit-content;
   min-width: 150px;
-  max-width: 40%;
+  max-width: fit-content;
   height: fit-content;
   text-align: left;
   font: 400 .9em 'Open Sans', sans-serif;
@@ -220,7 +238,7 @@ input[type="submit"]:active{
   margin-left: 5px;
 }
 .message-right {
-  /*direction: rtl;*/
+  direction: rtl;
   text-align: right;
   padding: 0;
   margin: 0;
@@ -493,12 +511,23 @@ input[type="submit"]:active{
     transform: translate(-22px,5px) skew(21deg); 
   }
 }
+.login{
+  font-size: 40px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
 .login-page{
-  background-image: url('./components/background-image.jpg');
-  background-size: cover; 
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
 }
 .login-options{
   margin: 10px;
@@ -515,7 +544,7 @@ input[type="submit"]:active{
   font-size: 50px;
 }
 .chat{
-  width: 61%;
+  width: 50%;
   overflow:hidden;
 }
 .chat-header{
@@ -552,7 +581,22 @@ input[type="submit"]:active{
 .status{
   display: inline-block;
 }
-
-
+.message-blue .reacts{
+  float: right;
+}
+.reacts{
+  background-color: antiquewhite;
+  border-radius: 15px;
+  padding:2px;
+  width: fit-content;
+  max-width: 100%;
+  display: flex;
+  margin-bottom: -28px;
+  cursor: pointer;
+}
+.reactions{
+  display: inline-block;
+  cursor: pointer;
+}
 
 
